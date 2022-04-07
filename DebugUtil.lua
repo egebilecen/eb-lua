@@ -1,6 +1,10 @@
 local DebugUtil = {}
 
 function DebugUtil.getTableString(o, depth)
+    if type(o) ~= "table" then
+        return "Given parameter is not a table."
+    end
+
     local pad = function(str, msg, depth)
         local padding = string.rep(str, depth)
         return padding..msg
