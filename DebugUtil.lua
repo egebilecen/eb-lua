@@ -1,6 +1,6 @@
 local DebugUtil = {}
 
-function DebugUtility.GetTableString(o, depth)
+function DebugUtil.GetTableString(o, depth)
     if type(o) ~= "table" then
         return "Given parameter is not a table."
     end
@@ -19,7 +19,7 @@ function DebugUtility.GetTableString(o, depth)
         displayStr = displayStr..pad(" ", k.." = ", tabLen)
         
         if type(v) == "table" then
-            displayStr = displayStr..DebugUtility.getTableString(v, depth+1)
+            displayStr = displayStr..DebugUtil.getTableString(v, depth+1)
         else
             displayStr = displayStr..tostring(v).." ("..type(v)..")"
         end
@@ -31,7 +31,7 @@ function DebugUtility.GetTableString(o, depth)
     return displayStr
 end
 
-function DebugUtility.TypeAndString(o)
+function DebugUtil.TypeAndString(o)
     return "("..type(o)..") "..tostring(o)
 end
 
